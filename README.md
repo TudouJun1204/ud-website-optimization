@@ -7,11 +7,8 @@ Udacity FEND project
 The aim of this project is to optimize the critical rendering path and make the index page render as quickly as possible by applying the techniques picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 Also we had to optimize FPS in pizza.html.
 
-To get started, check out the repository and inspect the code.
 
-## Getting started
-
-### Part 1: Optimize PageSpeed Insights score for index.html
+## Part 1: Optimize PageSpeed Insights score for index.html
 
 To first start this project, we had to setup the project.
 
@@ -33,7 +30,7 @@ To first start this project, we had to setup the project.
 
 1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
 
-#### Optimizations
+### Optimizations
 
 The following optimizations were done.
 
@@ -45,7 +42,7 @@ The following optimizations were done.
 6. Reduce dimensions of `pizerria.jpg` to `pizzeria_small.jpg` because width of that image on page is only 100px.
 
 
-### Part 2: Optimize Frames per Second in pizza.html
+## Part 2: Optimize Frames per Second in pizza.html
 
 In this, we had to modify `views/js/main.js`. FPS Counter/HUD Display useful in Chrome developer tools has been described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
