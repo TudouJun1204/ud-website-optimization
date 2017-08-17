@@ -100,3 +100,25 @@ document.addEventListener('DOMContentLoaded', function() {
 ```
 
 
+## Part 3: Optimize time to resize pizza to be less under 5 milliseconds
+
+Resizing pizzas takes around 20ms or so time right now. To optimize it, we edit the `changePizzaSizes` function.
+The following is the final form of that function.
+
+```js
+// Iterates through pizza elements on the page and changes their widths
+  function changePizzaSizes(size) {
+    var elements = document.querySelectorAll(".randomPizzaContainer");
+    var dx = determineDx(elements[0], size);
+    var newwidth = (elements[0].offsetWidth + dx) + 'px';
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.width = newwidth;
+    }
+  }
+```
+
+### Optimizations
+
+* Rather than querying `randomPizzaContainer` everytime, queried it once and stored in a variable called `elements`.
+* There is no need to determine dx and calculate new width for every pizza since images for all pizza is same. So calculate that for only one pizza and so move that out of the loop.
+* After these optimizations, average time to resize pizzas is less than 1.2ms.
