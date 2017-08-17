@@ -46,6 +46,8 @@ The following optimizations were done.
 
 In this, we had to modify `views/js/main.js`. FPS Counter/HUD Display useful in Chrome developer tools has been described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
+To first test this, start `views/pizza.html` in the browser and open Chrome Dev Tools. Have a look at the Performance or Timeline tab.
+
 ### Optimizations
 
 * `updatePositions` - Only 5 phases were needed so pre-calculated those and then used them for the scroll event. Also moved a static property fetch outside the loop.
