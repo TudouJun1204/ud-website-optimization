@@ -513,7 +513,7 @@ function updatePositions() {
   }
 
   // set phases
-  for (var i = 0; i < items.length; i++) {
+  for (i = 0; i < items.length; i++) {
     items[i].style.left = items[i].basicLeft + phases[i % 5] + 'px';
   }
 
