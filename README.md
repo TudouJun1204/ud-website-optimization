@@ -46,4 +46,57 @@ The following optimizations were done.
 
 In this, we had to modify `views/js/main.js`. FPS Counter/HUD Display useful in Chrome developer tools has been described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
+### Optimizations
+
+* `updatePositions` - Only 5 phases were needed so pre-calculated those and then used them for the scroll event. Also moved a static property fetch outside the loop.
+
+```js
+// .. code
+  var phases = []; // store phases first and then set
+  var scrollTop = document.body.scrollTop / 1250; // get this only once, var reuse
+
+  var items = document.querySelectorAll('.mover');
+  for (var i = 0; i < 5; i++) {
+    // var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    // items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    phases.push(100 * Math.sin(scrollTop + i));
+  }
+
+  // set phases
+  for (var i = 0; i < items.length; i++) {
+    items[i].style.left = items[i].basicLeft + phases[i % 5] + 'px';
+  }
+// .. code
+```
+
+* `requestAnimationFrame` for running `updatePositions` when the scrolling event fires. This optimizes animations to run in a single paint cycle.
+
+```js
+window.addEventListener('scroll', function() {
+  window.requestAnimationFrame(updatePositions);
+});
+```
+
+* Reduced number of pizzas at DOM load to 32 as that also filled the screen completely. Also moved fetching of `movingPizzas1` DOM element outside the loop.
+
+```js
+document.addEventListener('DOMContentLoaded', function() {
+  var cols = 8;
+  var s = 256;
+  var movingPizzas1 = document.getElementById("movingPizzas1");
+  // ^^ moved out of loop to computer once
+  for (var i = 0; i < 32; i++) {
+    var elem = document.createElement('img');
+    elem.className = 'mover';
+    elem.src = "images/pizza.png";
+    elem.style.height = "100px";
+    elem.style.width = "73.333px";
+    elem.basicLeft = (i % cols) * s;
+    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    movingPizzas1.appendChild(elem);
+  }
+  updatePositions();
+});
+```
+
 
