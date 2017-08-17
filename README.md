@@ -38,15 +38,15 @@ To first start this project, we had to setup the project.
 The following optimizations were done.
 
 1. Inline `style.css` in the index.html file.
-2. Move google analytics to the end of the `body` tag and made its script load async.
-3. Use [WebFont](https://github.com/typekit/webfontloader) to load fonts so that it doesn't block rendering.
-4. Compress `profilepic.jpg` to `profilepic_compressed.jpg` without sacrificing quality using ImageOptim.
-5. Reduce dimensions of `pizerria.jpg` to `pizzeria_small.jpg` because width of that image on page is only 100px.
+2. Use a `media=print` query on print.css so that it is only rendered when printing.
+3. Move google analytics to the end of the `body` tag and made its script load async.
+4. Use [WebFont](https://github.com/typekit/webfontloader) to load fonts so that it doesn't block rendering.
+5. Compress `profilepic.jpg` to `profilepic_compressed.jpg` without sacrificing quality using ImageOptim.
+6. Reduce dimensions of `pizerria.jpg` to `pizzeria_small.jpg` because width of that image on page is only 100px.
 
 
-#### Part 2: Optimize Frames per Second in pizza.html
+### Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
+In this, we had to modify `views/js/main.js`. FPS Counter/HUD Display useful in Chrome developer tools has been described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
