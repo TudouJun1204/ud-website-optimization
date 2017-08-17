@@ -1,5 +1,7 @@
 # Website Performance Optimization portfolio project
 
+http://aviaryan.github.io/ud-website-optimization/
+
 Udacity FEND project
 
 The aim of this project is to optimize the critical rendering path and make the index page render as quickly as possible by applying the techniques picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
