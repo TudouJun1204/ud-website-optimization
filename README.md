@@ -2,6 +2,8 @@
 
 http://aviaryan.github.io/ud-website-optimization/
 
+http://aviaryan.github.io/ud-website-optimization/views/pizza.html
+
 Udacity FEND project
 
 The aim of this project is to optimize the critical rendering path and make the index page render as quickly as possible by applying the techniques picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
@@ -40,6 +42,11 @@ The following optimizations were done.
 4. Use [WebFont](https://github.com/typekit/webfontloader) to load fonts so that it doesn't block rendering.
 5. Compress `profilepic.jpg` to `profilepic_compressed.jpg` without sacrificing quality using ImageOptim.
 6. Reduce dimensions of `pizerria.jpg` to `pizzeria_small.jpg` because width of that image on page is only 100px.
+
+### Results
+
+Testing the GitHub deployed version, the results were **94/100** for both mobile and desktop.
+You can check for yourself here. https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Faviaryan.github.io%2Fud-website-optimization%2F&tab=mobile
 
 
 ## Part 2: Optimize Frames per Second in pizza.html
@@ -101,6 +108,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
+### Results
+
+After these optimizations, we are getting an average FPS of 58-60 and there is no jank.
+
 
 ## Part 3: Optimize time to resize pizza to be less under 5 milliseconds
 
@@ -123,4 +134,7 @@ The following is the final form of that function.
 
 * Rather than querying `randomPizzaContainer` everytime, queried it once and stored in a variable called `elements`.
 * There is no need to determine dx and calculate new width for every pizza since images for all pizza is same. So calculate that for only one pizza and so move that out of the loop.
-* After these optimizations, average time to resize pizzas is less than 1.2ms.
+
+### Results
+
+After these optimizations, average time to resize pizzas is less than 1.2ms.
